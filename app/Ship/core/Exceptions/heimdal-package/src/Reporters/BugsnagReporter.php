@@ -2,9 +2,9 @@
 
 namespace Optimus\Heimdal\Reporters;
 
-use Exception;
 use Bugsnag\Client;
 use InvalidArgumentException;
+use Throwable;
 
 class BugsnagReporter implements ReporterInterface
 {
@@ -27,9 +27,9 @@ class BugsnagReporter implements ReporterInterface
     /**
      * Report exception
      *
-     * @param Exception $exception
+     * @param Throwable $exception
      */
-    public function report(Exception $exception)
+    public function report(Throwable $exception)
     {
         return $this->client->notifyException($exception);
     }

@@ -2,7 +2,7 @@
 
 namespace Apiato\Core\Exceptions\Handlers;
 
-use Exception;
+use Throwable;
 use Illuminate\Foundation\Exceptions\Handler as LaravelExceptionHandler;
 use Illuminate\Support\Facades\Config;
 use Optimus\Heimdal\ExceptionHandler as HeimdalExceptionHandler;
@@ -14,7 +14,7 @@ use Optimus\Heimdal\ExceptionHandler as HeimdalExceptionHandler;
  */
 class ExceptionsHandler extends HeimdalExceptionHandler
 {
-    public function render($request, Exception $e)
+    public function render($request, Throwable $e)
     {
         // if the user expects json or the API forces the user to send it
         if (($request->expectsJson()) || (Config::get('apiato.requests.force-accept-header'))) {

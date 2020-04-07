@@ -2,7 +2,7 @@
 
 namespace Optimus\Heimdal\Reporters;
 
-use Exception;
+use Throwable;
 use Rollbar;
 use InvalidArgumentException;
 
@@ -25,10 +25,10 @@ class RollbarReporter implements ReporterInterface
     /**
      * Report exception
      *
-     * @param Exception $exception
+     * @param Throwable $exception
      * @return string|void
      */
-    public function report(Exception $exception)
+    public function report(Throwable $exception)
     {
         return Rollbar::report_exception($exception);
     }
